@@ -8,8 +8,8 @@ document.body.appendChild(canvas);
 // Variabelen voor de positie en snelheid van de cirkel
 let x = 50; // startpositie X
 let y = 50; // startpositie Y
-let dx = 2; // snelheid X
-let dy = 2; // snelheid Y
+let dx = 6; // snelheid X    van bal
+let dy = 4; // snelheid Y
 let radius = 20; // radius van de cirkel
  
 // De functie om de cirkel te tekenen
