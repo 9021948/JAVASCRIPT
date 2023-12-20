@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #game-container {
+      text-align: center;
+    }
+
+    #go-btn, #green-screen {
+      display: none;
+      width: 200px;
+      height: 200px;
+      border: 2px solid black;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    #green-screen {
+      background-color: green;
+    }
+  </style>
+  <title>Reactietijd Spel</title>
+</head>
+<body>
+
+<div id="game-container">
+  <div id="go-btn" onclick="startGame()">Go</div>
+  <div id="green-screen" onclick="stopGame()"></div>
+  <p id="reaction-time"></p>
+</div>
+
+<script src="java.js"></script>
+
+</body>
+</html>
