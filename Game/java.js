@@ -18,8 +18,23 @@ let y2 = 150;
 let speed = 4;
 let radius2 = 10;
 
+// variable voor score
+let score = 0;
+let tijdMax = 25;
+let tijdTeller = 0;
+
+function scoreScherm() {
+    ctx.font = "20px Arial";
+    ctx.fillStyle = "red";
+    ctx.fillText(String(score),10,22); 
+    tijdTeller++;
+    if (tijdTeller>tijdMax){}
+}
+
+
+
 document.addEventListener('keydown', function(event){
-    if (Event.key === 'ArrowLeft') {
+    if (Event.key === `ArrowLeft`) {
         x2 -= speed;
         if  (x2 < radius2) {
             x2 = canvas.width - radius2;
@@ -27,7 +42,7 @@ document.addEventListener('keydown', function(event){
         }
 
     } 
-    if (event.key === 'ArrowUp')
+    if (event.key === 'ArrowUp'){}
     else if (event.key === 'ArrowRight'){
          x2 += speed; 
      if (x2 > canvas.witdh - radius2){
@@ -41,7 +56,7 @@ if (event.key == 'arrowUp && y2 > radius2'){
 }
 function collission() {
      if (x == x2 && y == y2) {
-        alert (Game Over);
+        alert ("Game Over");
      }
 }
 
@@ -70,7 +85,22 @@ function drawCircle2() {
     ctx.fill();
     ctx.closePath();
 }
- 
+function collission() { // meten of de randen elkaar raken
+    let rx = x - x2;
+    let ry = y - y2;
+    let distance = Math.sqrt(rx *rx + ry *ry); // stelling van pythagroras
+if (distance < Radius + radius2){
+    alert('score: ${score} . Game Over!'); // score weergave met alert
+    Score=0; // score weer op 0 
+    x=100; y=100; // bal 1 reset
+    x2 = canvas.width-100;
+    y2 = 200; // reset bal 2 
+    dx = 0; dy = 0; // auto bewegen bal 1 uitzetten
+ }
+}
+
+
+
 // De update functie die elke frame wordt uitgevoerd
 function update() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -79,7 +109,8 @@ function update() {
  
     drawCircle();
     drawCircle2();
-    collission
+    collission();
+    scoreScherm();
 
  
     // Verander de positie van de cirkel
